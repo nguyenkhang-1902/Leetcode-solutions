@@ -8,9 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Bỏ qua cảnh báo Node.js 20
     steps:
       - name: Sync
-        uses: joshcai/leetcode-sync@v1.7
+        uses: joshcai/leetcode-sync@master # Dùng bản master để cập nhật fix mới nhất
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
